@@ -1,4 +1,5 @@
-// GalleryPage.js
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { PinataSDK } from "pinata";
