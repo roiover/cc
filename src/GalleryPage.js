@@ -1049,7 +1049,7 @@ if (filesDeleted) {
       SVG
      </button>
      <button className="btn btn-secondary">
-      EPS
+      EPSS
      </button>
      <button className="btn btn-secondary">
       PDF
