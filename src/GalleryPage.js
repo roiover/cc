@@ -9,7 +9,6 @@ const pinata = new PinataSDK({
   pinataJwt: PINATA_SECRET_API_KEY,
   pinataGateway: "https://files.photobunker.pro",
 });
-//bafkreifye7mrysnirozj3yvho3xrhtjrrl26jxn5f6lmpcjedsjm3k7gee
 const GalleryPage = () => {
   const { bunkerId } = useParams();
   const { search } = useLocation();
