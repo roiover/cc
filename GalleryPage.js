@@ -149,8 +149,9 @@ const GalleryPage = () => {
           cid: bunkerId,
           expires: 3000,
         });
+        const proxyUrl = `https://cc-production-c6e6.up.railway.app/proxy?url=${encodeURIComponent(urlx)}`;
 
-        const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
+        //const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
         const response = await fetch(proxyUrl);
 
         if (!response.ok) throw new Error('Network response was not OK');
