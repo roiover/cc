@@ -148,19 +148,19 @@ const GalleryPage = () => {
           cid: bunkerId,
           expires: 3000,
         });
-        const proxyUrl = `https://cc-production-c6e6.up.railway.app/proxy?url=${encodeURIComponent(urlx)}`;
+       // const proxyUrl = `https://cc-production-c6e6.up.railway.app/proxy?url=${encodeURIComponent(urlx)}`;
         console.log('proxy url');
 
 console.log(proxyUrl);
-        //const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
+        const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
         const response = await fetch(proxyUrl);
         console.log('response');
 
  console.log(response);
-        if (!response.ok) throw new Error('Network response was not OK');
+        if (!response.ok) throw new Error('Галлерея будет доступна в ближайшее время');
         const contentType = response.headers.get("content-type");
         if (!contentType || !contentType.includes("application/json")) {
-          throw new Error("Received data is not in JSON format");
+          throw new Error("Галлерея будет доступна в ближайшее время или неверный формат");
         }
 
         const data = await response.json();
