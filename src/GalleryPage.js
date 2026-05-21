@@ -149,9 +149,13 @@ const GalleryPage = () => {
           expires: 3000,
         });
         const proxyUrl = `https://cc-production-c6e6.up.railway.app/proxy?url=${encodeURIComponent(urlx)}`;
+        console.log('proxy url');
 
+console.log(proxyUrl);
         //const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
         const response = await fetch(proxyUrl);
+        console.log('response');
+
  console.log(response);
         if (!response.ok) throw new Error('Network response was not OK');
         const contentType = response.headers.get("content-type");
