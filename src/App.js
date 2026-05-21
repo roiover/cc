@@ -9,8 +9,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<div>Home works!</div>} />
-        <Route path="/gallery/:bunkerId" element={<div>Gallery works!</div>} />
+        <Route path="/" element={<UploadService />} />
+        <Route path="/gallery/:bunkerId" element={<GalleryPage />} />
       </Routes>
     </Router>
   );
