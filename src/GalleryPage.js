@@ -152,7 +152,7 @@ const GalleryPage = () => {
 
         //const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
         const response = await fetch(proxyUrl);
-
+ console.log(response);
         if (!response.ok) throw new Error('Network response was not OK');
         const contentType = response.headers.get("content-type");
         if (!contentType || !contentType.includes("application/json")) {
@@ -160,6 +160,7 @@ const GalleryPage = () => {
         }
 
         const data = await response.json();
+        console.log(data);
 
         const imageUrls = await Promise.all(
           data.images.map(async (image) => {
@@ -171,6 +172,7 @@ const GalleryPage = () => {
             return url;
           })
         );
+        console.log(imageUrls);
 
         setImageUrls(imageUrls);
 
@@ -192,7 +194,7 @@ const GalleryPage = () => {
     handleDropdowns();
     handleModals();
     handleDocumentClick();
-  }, [jsonUrl, bunkerId]);
+  }, [jsonUrl]);
 
 
 if (filesDeleted) {
