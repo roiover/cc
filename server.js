@@ -1,7 +1,7 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch'); // optional in Node 22+
+const fetch = require('node-fetch'); // for Node <18, optional in Node >=18
 const path = require('path');
 
 const app = express();
@@ -15,6 +15,7 @@ app.get('/proxy', async (req, res) => {
   try {
     const response = await fetch(url);
     const contentType = response.headers.get('content-type') || '';
+    
     if (contentType.includes('application/json')) {
       const data = await response.json();
       res.json(data);
@@ -28,11 +29,11 @@ app.get('/proxy', async (req, res) => {
   }
 });
 
-// Serve React build
+// Serve React build (production)
 const buildPath = path.join(__dirname, 'build');
 app.use(express.static(buildPath));
 
-// For all other routes, serve React index.html
+// React Router fallback
 app.get('*', (req, res) => {
   res.sendFile(path.join(buildPath, 'index.html'));
 });
