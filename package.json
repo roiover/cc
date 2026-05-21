@@ -18,8 +18,8 @@
     "browser-image-compression": "^1.0.17",
     "react-modal": "^3.16.1",
     "express": "^4.18.2",
-  "cors": "^2.8.5",
-  "node-fetch": "^3.4.1"
+    "cors": "^2.8.5",
+    "node-fetch": "^3.3.2"
   },
   "scripts": {
       "start": "node server.js",
