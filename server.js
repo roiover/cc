@@ -1,7 +1,6 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch'); // for Node <18, optional in Node >=18
 const path = require('path');
 
 const app = express();
@@ -13,9 +12,10 @@ app.get('/proxy', async (req, res) => {
   if (!url) return res.status(400).json({ error: 'Missing url' });
 
   try {
+    // Node 18+ has global fetch
     const response = await fetch(url);
     const contentType = response.headers.get('content-type') || '';
-    
+
     if (contentType.includes('application/json')) {
       const data = await response.json();
       res.json(data);
@@ -29,11 +29,11 @@ app.get('/proxy', async (req, res) => {
   }
 });
 
-// Serve React build (production)
+// Serve React build
 const buildPath = path.join(__dirname, 'build');
 app.use(express.static(buildPath));
 
-// React Router fallback
+// React Router fallback — must be AFTER proxy
 app.get('*', (req, res) => {
   res.sendFile(path.join(buildPath, 'index.html'));
 });
